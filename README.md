@@ -2,12 +2,10 @@
 
 Install SideStore (or other apps) and import your pairing file with ease
 
-## Todo:
+## Features
 
-[ ] Add anisette server option
-[x] Device connection
-[ ] Install SideStore
-[ ] Install Other
-[ ] Manage Pairing File
-[ ] Manage Certificates
-[ ] Manage App IDs
+- Install SideStore and place pairing file automatically
+- Install other IPAs
+- Manage pairing files in common apps like StikDebug, SideStore, Protokolle, etc
+- See and revoke development certificates
+- See App IDs
