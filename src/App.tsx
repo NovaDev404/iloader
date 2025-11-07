@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import "./App.css";
 import { AppleID } from "./AppleID";
 import { Device, DeviceInfo } from "./Device";
@@ -20,6 +20,7 @@ import { AppIds } from "./pages/AppIds";
 import { Settings } from "./pages/Settings";
 import { Pairing } from "./pages/Pairing";
 import { useStore } from "./StoreContext";
+import { getVersion } from "@tauri-apps/api/app";
 
 function App() {
   const [operationState, setOperationState] = useState<OperationState | null>(
@@ -30,8 +31,16 @@ function App() {
   const [openModal, setOpenModal] = useState<
     null | "certificates" | "appids" | "pairing" | "settings"
   >(null);
+  const [version, setVersion] = useState<string>("");
+  const [revokeCert] = useStore<boolean>("revokeCert", true);
 
-  const [revokeCert, setRevokeCert] = useStore<boolean>("revokeCert", true);
+  useEffect(() => {
+    const fetchVersion = async () => {
+      const version = await getVersion();
+      setVersion(version);
+    };
+    fetchVersion();
+  }, []);
 
   const startOperation = useCallback(
     async (
@@ -104,6 +113,7 @@ function App() {
   return (
     <main className="container">
       <h1>iloader</h1>
+      <h4>Version {version}</h4>
       <div className="cards-container">
         <div className="card-dark">
           <AppleID loggedInAs={loggedInAs} setLoggedInAs={setLoggedInAs} />
