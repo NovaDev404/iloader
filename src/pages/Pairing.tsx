@@ -79,7 +79,7 @@ export const Pairing = () => {
                     <td className="cert-item-part">{app.name}</td>
                     <td className="cert-item-part">{app.bundleId}</td>
                     <td className="cert-item-revoke" onClick={() => pair(app)}>
-                      Place Pairing File
+                      Place
                     </td>
                   </tr>
                 ))}
