@@ -50,9 +50,10 @@ Currently, due to a bug, iloader can't correctly allocate keychain access entitl
 - [isideload](https://github.com/nab138/isideload) for installing apps
 - [idevice_pair](https://github.com/jkcoxson/idevice_pair) was used as a reference for pairing file management
 - App made with [tauri](https://tauri.app)
-
 ## Future Plans
 
 - Set a "default" account to automatically log into
 - Import SideStore account info automatically
 - Mount DDI and open sidestore after installation
+- Check for developer mode and warn about it if not enabled
+- Improved error messages
